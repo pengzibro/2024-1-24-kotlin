@@ -20,12 +20,18 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         // onCreate，生命周期，活动创建时被调用
         super.onCreate(savedInstanceState)
+        // setContent设置界面的内容
         setContent {
+            // MyApplicationTheme自订的compose主题，设置样式和颜色
             MyApplicationTheme {
                 // A surface container using the 'background' color from the theme
+                // Surface设置一个容器，代表界面的表面
+                // fillMaxSize 充满父容器的大小
+                // 设置颜色为主题中的背景颜色
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
+                    // 调用了Greeting函数，参数为安卓
                     Greeting("Android")
                 }
             }
@@ -34,7 +40,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+// modifier是一个类型为Modifier的参数，用于指定组件的修饰符
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    //
     Text(
         text = "Hello $name!", modifier = modifier
     )
