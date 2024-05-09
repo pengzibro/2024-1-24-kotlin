@@ -1,68 +1,60 @@
-package com.example.myapplication.ui.theme
+import android.app.Activity
+import android.os.Bundle
+import android.util.Log
+import com.example.myapplication.R
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
-import androidx.hilt.navigation.compose.hiltViewModel
+class MyActivity : Activity() {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_my) // 设置你的布局文件
 
-@Composable
-fun LoginPage(
-    navCtrl: NavHostController,
-    viewModel: LoginLogic = hiltViewModel()
-) {
-    val viewStates = viewModel.viewStates
-    Column (
-        Modifier
-            .fillMaxSize()
-    ) {
-        Box(
-            Modifier
-                .background(color = Color.Green)
-                .fillMaxSize()
-        ) {
-            Column (Modifier.fillMaxSize()) {
-                Card(
-                    shape = RoundedCornerShape(20.dp),
-                    elevation = CardDefaults.cardElevation(
-                        defaultElevation = 6.dp
-                    ),
-                    modifier = Modifier.padding(20.dp, 20.dp, 20.dp, 20.dp)
-                ) {
-                    Row (
-                        Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                viewModel.testApiCall()
-                            }) {
-                        Column (Modifier.fillMaxWidth()) {
-                            Text(
-                                text = "Api Button",
-                                Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
-                                fontSize = 16.sp,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis
-                            )
-                        }
-                    }
-                }
-            }
-        }
+        Log.d("MyActivity", "onCreate called")
+        // 这里是Activity被创建时应该执行的代码
     }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("MyActivity", "onStart called")
+        // 当Activity对用户可见时，但尚未获取焦点时调用
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "onResume called")
+        // 当Activity开始与用户交互时调用
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("MyActivity", "onPause called")
+        // 当Activity不再与用户交互时调用，可能是因为另一个Activity正在启动
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("MyActivity", "onStop called")
+        // 当Activity不再对用户可见时调用
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("MyActivity", "onRestart called")
+        // 当Activity从停止状态变为活动状态时调用
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("MyActivity", "onDestroy called")
+        // 当Activity即将被销毁时调用，通常是因为它正在被关闭
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        // 当Activity即将被销毁，并且有可能在之后被重建时调用
+        // 可以使用outState来保存Activity的状态
+        // 例如：outState.putString("key", "value")
+    }
+
+
 }
