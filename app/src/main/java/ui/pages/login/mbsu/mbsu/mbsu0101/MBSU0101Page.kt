@@ -27,16 +27,34 @@ import androidx.lifecycle.ViewModel
 
 fun LoginPage() {
     Column(
-        Modifier
-            // 组件填充其父组件的最大可用空间
-            .fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         Box(
-            Modifier
+            modifier = Modifier
                 .background(color = Color.White)
                 .fillMaxSize()
         ) {
-            Column(Modifier.fillMaxSize()) {
+            Column(modifier = Modifier.fillMaxSize()) {
+                // 第一个按钮
+                Card(
+                    shape = RoundedCornerShape(10.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+                    modifier = Modifier.padding(20.dp, 20.dp, 20.dp, 0.dp)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth() // 只需要 fillMaxWidth
+                    ) {
+                        Text(
+                            text = "API Button",
+                            modifier = Modifier.padding(8.dp), // 直接应用 Modifier
+                            fontSize = 16.sp,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                            // 如果需要，可以在这里添加 clickable 修饰符
+                        )
+                    }
+                }
                 Card(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(
@@ -44,14 +62,39 @@ fun LoginPage() {
                     ),
                     modifier = Modifier.padding(20.dp, 20.dp, 20.dp, 0.dp)
                 ) {
-                    Row (
+                    Row(
                         Modifier
-                            .fillMaxSize()
-                            .clickable {}
-                    ){
-                        Column (Modifier.fillMaxWidth()) {
+                            .fillMaxWidth()
+                            .clickable {
+                            }
+                    ) {
+                        Column(Modifier.fillMaxWidth()) {
                             Text(
-                                text = "API Button",
+                                text = "DB_SELECT",
+                                Modifier.padding(8.dp),
+                                fontSize = 16.sp,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                    }
+                }
+                Card(
+                    shape = RoundedCornerShape(10.dp),
+                    elevation = CardDefaults.cardElevation(
+                        defaultElevation = 2.dp
+                    ),
+                    modifier = Modifier.padding(20.dp, 20.dp, 20.dp, 0.dp)
+                ) {
+                    Row(
+                        Modifier
+                            .fillMaxWidth()
+                            .clickable {
+//                                viewModel.dataCreate()
+                            }) {
+                        Column(Modifier.fillMaxWidth()) {
+                            Text(
+                                text = "DB_CREATE",
                                 Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
                                 fontSize = 16.sp,
                                 maxLines = 1,
@@ -60,15 +103,68 @@ fun LoginPage() {
                         }
                     }
                 }
-
-                Card (
+                Card(
                     shape = RoundedCornerShape(10.dp),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 2.dp
                     ),
-                    modifier = Modifier.padding(20.dp, 20.dp, 20.dp, 0.dp)
-                ){
-
+                    modifier = Modifier
+                        .padding(20.dp, 20.dp, 20.dp, 0.dp)
+                ) {
+                }
+                Column(
+                    Modifier
+                        .fillMaxSize()
+                ) {
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Text(
+                        text = "DB_CREATE",
+                        Modifier.padding(8.dp, 8.dp, 8.dp, 8.dp),
+                        fontSize = 16.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
                 }
             }
         }
